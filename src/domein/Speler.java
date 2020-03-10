@@ -38,11 +38,12 @@ public class Speler {
 		}
 	}
 	
-	public void jokersKiezen() {
+	public int aantalJokers() {
 		int aantalJokers = 0;
 		for (Kaart kaart : inventaris) {
 			if (kaart.getKleur() == "Joker")
 				aantalJokers++;
 		}
+		return aantalJokers;
 	}
 }
