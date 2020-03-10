@@ -9,7 +9,6 @@ public class Kaart {
 	private static final List<String> KLEURENLIJST = new ArrayList<>(
 			Arrays.asList("Rood", "Paars", "Blauw", "Groen", "Bruin", "Oranje", "Geel", "+2", "Joker")
 	);
-
 	
 	public Kaart(String kleur) {
 		setKleur(kleur);
@@ -25,7 +24,6 @@ public class Kaart {
 		else
 			throw new IllegalArgumentException("Foute invoer!");
 	}
-	
 	
 	@Override
 	public String toString() {
