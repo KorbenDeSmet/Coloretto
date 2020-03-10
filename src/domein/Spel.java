@@ -1,5 +1,9 @@
 package domein;
 
-public class Spel {
+import java.util.ArrayList;
+import java.util.List;
 
+public class Spel {
+	private List<String> deck = new ArrayList<String>();
+	
 }
