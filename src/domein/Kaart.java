@@ -12,7 +12,7 @@ public class Kaart {
 
 	
 	public Kaart(String kleur) {
-		this.kleur = kleur;
+		setKleur(kleur);
 	}
 
 	public String getKleur() {
@@ -29,6 +29,6 @@ public class Kaart {
 	
 	@Override
 	public String toString() {
-			return "Kaart in de kleur " + this.kleur;
+			return this.kleur;
 	}
 }
