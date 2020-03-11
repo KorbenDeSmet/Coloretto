@@ -68,10 +68,9 @@ public class Spel {
 		}
 		for (int i = 0; i < 3; i++) {
 			int[] arrayMetScores = new int[]{1, 3, 6, 10, 15, 21};
-			//vb rood = 5 dan moet ge uit deze array punten + arraymetscores[4]
-			//en dan kleur er aan linken dit voor de eerste 3
-			//nadien alle andere punten eraf trekken
+			punten += arrayMetScores[arraySorteerAantal[i-1]-1];
 		}
+		//alle kaarten die na de eerste 3 (grootste/gesorteerd) komen worden opgeteld en afgetrokken van punten
 		
 		
 		return String.format("%s heeft %n punten!", speler, punten);
