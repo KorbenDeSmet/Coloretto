@@ -15,12 +15,15 @@ public class Spel {
 	//functies
 	public String scoreBerekenen (Speler speler) {
 		/////JOKERS BESTAAN NIET MEER, ze zijn veranderd in de kaarten die de spelers gekozen heeft.
-		int punten = 0;
+		int pluspunten = 0;
+		int minpunten = 0;
+		int totaalpunten = 0;
 		int[] arraySorteerAantal = new int[8];
 		String[] arraySorteerKleur = new String[8];
 		boolean gesorteerd = false;
 		int temp = 0;
 		String temp2;
+		int[] arrayMetScores = new int[]{1, 3, 6, 10, 15, 21};
 
 		int countRood = Collections.frequency(speler.getInventaris(),"Rood");
 		int countPaars = Collections.frequency(speler.getInventaris(),"Paars");
@@ -67,12 +70,14 @@ public class Spel {
 			}
 		}
 		for (int i = 0; i < 3; i++) {
-			int[] arrayMetScores = new int[]{1, 3, 6, 10, 15, 21};
-			punten += arrayMetScores[arraySorteerAantal[i-1]-1];
+			pluspunten += arrayMetScores[arraySorteerAantal[i-1]-1];
 		}
 		//alle kaarten die na de eerste 3 (grootste/gesorteerd) komen worden opgeteld en afgetrokken van punten
+		for (int i = 2; i < arraySorteerKleur.length; i++) {
+			minpunten += arrayMetScores[arraySorteerAantal[i-1]-1];
+		}
+		totaalpunten = pluspunten - minpunten + (countPlusTwee*2);
 		
-		
-		return String.format("%s heeft %n punten!", speler, punten);
+		return String.format("%s heeft %n punten!", speler, totaalpunten);
 	}
 }
