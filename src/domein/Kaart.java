@@ -18,6 +18,10 @@ public class Kaart {
 		return kleur;
 	}
 
+	public static List<String> getKleurenlijst() {
+		return KLEURENLIJST;
+	}
+
 	public void setKleur(String kleur) {
 		if (KLEURENLIJST.contains(kleur))
 			this.kleur = kleur;
