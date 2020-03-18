@@ -1,7 +1,6 @@
 package domein;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,10 +16,16 @@ public class Spel {
 	private static final int KAARTEN_PER_KLEUR = 9;
 	private static final int AANTAL_JOKERS = 3;
 	private static final int AANTAL_PLUS2 = 10;
+	private Kaart inHand;
 	
 	//constructors 	
-	public Spel()
-	{
+	public Spel() {
+		deckAanmaken();
+	}
+	//getters en setters
+		
+	//functies
+	public void deckAanmaken() {
 		for (String kleur : Kaart.getKleurenlijst()) {
 			for (int i = 0; i < KAARTEN_PER_KLEUR; i++)
 				deck.add(new Kaart(kleur));
@@ -33,43 +38,36 @@ public class Spel {
 		}
 		Collections.shuffle(deck);
 	}
-	//getters en setters
-		
-	//functies
-	public void spelersToevoegen(int nummer, String naam1, String naam2, String naam3, String naam4, String naam5){
-		if (nummer == 4) {
-			Speler speler1 = new Speler(naam1);
-			Speler speler2 = new Speler(naam2);
-			Speler speler3 = new Speler(naam3);
-			Speler speler4 = new Speler(naam4);
-			lijstVanSpelers.add(speler1);
-			lijstVanSpelers.add(speler2);
-			lijstVanSpelers.add(speler3);
-			lijstVanSpelers.add(speler4);
-		} else if (nummer == 5) {
-			
-			Speler speler1 = new Speler(naam1);
-			Speler speler2 = new Speler(naam2);
-			Speler speler3 = new Speler(naam3);
-			Speler speler4 = new Speler(naam4);
-			Speler speler5 = new Speler(naam5);
-			lijstVanSpelers.add(speler1);
-			lijstVanSpelers.add(speler2);
-			lijstVanSpelers.add(speler3);
-			lijstVanSpelers.add(speler4);
-			lijstVanSpelers.add(speler5);
+	
+	public void spelersToevoegen(List<String> namenSpelers){
+		for (String naam : namenSpelers) {
+			Speler speler = new Speler(naam);	
+			lijstVanSpelers.add(speler);
+		}
+	}
+	
+	public void spelersStartInventoryGeven() {
+		for (Speler spelerDieKaartKrijgt : lijstVanSpelers) {
+			boolean status = false;
+			while (!status) {
+				for (Speler spelerChecken : lijstVanSpelers) {
+					if (spelerDieKaartKrijgt.getInventaris() == spelerChecken.getInventaris()) {
+						spelerDieKaartKrijgt.kaartToevoegenAanInventaris(deck.get(deck.size()-1));
+						deck.remove(deck.size()-1);
+						status = true;
+					} else {
+						Collections.shuffle(deck);
+					}
+				}
+			}
 		}
 	}
 	
 	public String neemKaart() {		
-		//kaart nemen
-		int laatsteKaart = 0;
-		laatsteKaart = tempDeck.size()-1;
-		inHand = tempDeck.get(laatsteKaart);
-		//kaart in inHand steken en uit array halen
-		tempDeck.remove(laatsteKaart);
-		//kaart tonen
-		return inHand; 
+		//twijfelgeval of ik de kleur of het object moet tonen
+		inHand = deck.get(deck.size()-1);
+		deck.remove(deck.size()-1);
+		return inHand.getKleur(); 
 	}
 	
 	public List<Stapel> stapelsTonen() {
@@ -100,49 +98,32 @@ public class Spel {
 	public void stapelNemen(int nummerVanSpeler, String stapel) {
 		switch(stapel) {
 		  case "stapel1":
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(0).getStapel());
+			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(0));
 			  lijstVanStapels.get(0).stapel.clear();
 		    break;
 		  case "stapel2":
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(1).getStapel());
+			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(1));
 			  lijstVanStapels.get(1).stapel.clear();
 		    break;
 		  case "stapel3":
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(2).getStapel());
+			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(2));
 			  lijstVanStapels.get(2).stapel.clear();
 			break;
 		  case "stapel4":
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(3).getStapel());
+			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(3));
 			  lijstVanStapels.get(3).stapel.clear();
 			break;
 		  case "stapel5":
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(4).getStapel());
+			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(4));
 			  lijstVanStapels.get(4).stapel.clear();
 			break;
 		}
 	}
 	 	
 	public void stapelsAanmaken() {
-		if (lijstVanSpelers.size() == 4) {
-			Stapel stapel1 = new Stapel(1);
-			Stapel stapel2 = new Stapel(2);
-			Stapel stapel3 = new Stapel(3);
-			Stapel stapel4 = new Stapel(4);
-			lijstVanStapels.add(stapel1);
-			lijstVanStapels.add(stapel2);
-			lijstVanStapels.add(stapel3);
-			lijstVanStapels.add(stapel4);
-		} else if (lijstVanSpelers.size() ==5) {
-			Stapel stapel1 = new Stapel(1);
-			Stapel stapel2 = new Stapel(2);
-			Stapel stapel3 = new Stapel(3);
-			Stapel stapel4 = new Stapel(4);
-			Stapel stapel5 = new Stapel(5);
-			lijstVanStapels.add(stapel1);
-			lijstVanStapels.add(stapel2);
-			lijstVanStapels.add(stapel3);
-			lijstVanStapels.add(stapel4);
-			lijstVanStapels.add(stapel5);
+		for (int i = 0; i < lijstVanSpelers.size(); i++) {
+			Stapel stapel = new Stapel(i);
+			lijstVanStapels.add(stapel);
 		}
 	}
 	
