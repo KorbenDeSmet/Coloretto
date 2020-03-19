@@ -74,46 +74,46 @@ public class Spel {
 		return lijstVanStapels;
 	}
 	
-	public void plaatsKaartOpStapel(String stapel, Kaart inHand){
+	public void plaatsKaartOpStapel(int stapel, Kaart inHand){
 		//stapel kiezen
 		switch(stapel) {
-		  case "stapel1":
+		  case 1:
 			lijstVanStapels.get(0).stapel.add(inHand);
 		    break;
-		  case "stapel2":
+		  case 2:
 			lijstVanStapels.get(1).stapel.add(inHand);
 		    break;
-		  case "stapel3":
+		  case 3:
 			lijstVanStapels.get(2).stapel.add(inHand);
 			break;
-		  case "stapel4":
+		  case 4:
 			lijstVanStapels.get(3).stapel.add(inHand);
 			break;
-		  case "stapel5":
+		  case 5:
 			lijstVanStapels.get(4).stapel.add(inHand);
 			break;
 		}
 	}
 	
-	public void stapelNemen(int nummerVanSpeler, String stapel) {
-		switch(stapel) {
-		  case "stapel1":
+	public void stapelNemen(int nummerVanSpeler, int stapelNR) {
+		switch(stapelNR) {
+		  case 1:
 			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(0));
 			  lijstVanStapels.get(0).stapel.clear();
 		    break;
-		  case "stapel2":
+		  case 2:
 			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(1));
 			  lijstVanStapels.get(1).stapel.clear();
 		    break;
-		  case "stapel3":
+		  case 3:
 			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(2));
 			  lijstVanStapels.get(2).stapel.clear();
 			break;
-		  case "stapel4":
+		  case 4:
 			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(3));
 			  lijstVanStapels.get(3).stapel.clear();
 			break;
-		  case "stapel5":
+		  case 5:
 			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(4));
 			  lijstVanStapels.get(4).stapel.clear();
 			break;
