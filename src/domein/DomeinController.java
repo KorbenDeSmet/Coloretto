@@ -3,6 +3,7 @@ package domein;
 import java.util.List;
 
 public class DomeinController {
+	
 	private Spel spel;
 	
 	public void startSpel() {
@@ -44,5 +45,22 @@ public class DomeinController {
 	
 	public String scoreBerekenen(Speler speler) {
 		return spel.scoreBerekenen(speler);
+	}
+	
+	public List<Kaart> getDeck(){
+		return spel.getDeck();
+	}
+	
+	public List<Speler> getLijstVanSpelers() {
+		return spel.getLijstVanSpelers();
+	}
+	
+	public List<Stapel> getLijstVanStapels() {
+		return spel.getLijstVanStapels();
+	}
+	
+	//mogelijk .getkleur() weglaten en type veranderen naar Kaart
+	public String getInHand() {
+		return spel.getInHand().getKleur();
 	}
 }
