@@ -22,8 +22,52 @@ public class Spel {
 	public Spel() {
 		deckAanmaken();
 	}
+	
 	//getters en setters
-		
+	public List<Kaart> getDeck() {
+		return deck;
+	}
+
+	public void setDeck(List<Kaart> deck) {
+		this.deck = deck;
+	}
+
+	public List<Speler> getLijstVanSpelers() {
+		return lijstVanSpelers;
+	}
+
+	public void setLijstVanSpelers(List<Speler> lijstVanSpelers) {
+		this.lijstVanSpelers = lijstVanSpelers;
+	}
+
+	public List<Stapel> getLijstVanStapels() {
+		return lijstVanStapels;
+	}
+
+	public void setLijstVanStapels(List<Stapel> lijstVanStapels) {
+		this.lijstVanStapels = lijstVanStapels;
+	}
+
+	public Kaart getInHand() {
+		return inHand;
+	}
+
+	public void setInHand(Kaart inHand) {
+		this.inHand = inHand;
+	}
+
+	public static int getKaartenPerKleur() {
+		return KAARTEN_PER_KLEUR;
+	}
+
+	public static int getAantalJokers() {
+		return AANTAL_JOKERS;
+	}
+
+	public static int getAantalPlus2() {
+		return AANTAL_PLUS2;
+	}
+	
 	//functies
 	public void deckAanmaken() {
 		for (String kleur : Kaart.getKleurenlijst()) {
@@ -38,7 +82,7 @@ public class Spel {
 		}
 		Collections.shuffle(deck);
 	}
-	
+
 	public void spelersToevoegen(List<String> namenSpelers){
 		for (String naam : namenSpelers) {
 			Speler speler = new Speler(naam);	
