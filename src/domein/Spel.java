@@ -165,6 +165,7 @@ public class Spel {
 		arraySorteerKleur[6] = "Geel";
 		//arraySorteerKleur[7] = "+2";
 		
+		//bubble sort
 		//sorting algorithm: https://stackabuse.com/sorting-algorithms-in-java/
 		while (!gesorteerd) {
 			gesorteerd = true;
