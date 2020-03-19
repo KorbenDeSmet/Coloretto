@@ -12,11 +12,6 @@ public class DomeinController {
 		this.spel = new Spel();
 	}
 	
-	/* wordt automatisch uitgevoerd in de constructor van klasse Spel
-	public void deckAanmaken() {
-		spel.deckAanmaken();
-	}*/
-	
 	public void spelersToevoegen(List<String> namenSpelers) {
 		spel.spelersToevoegen(namenSpelers);
 	}
