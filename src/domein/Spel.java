@@ -28,33 +28,22 @@ public class Spel {
 		return deck;
 	}
 
-	public void setDeck(List<Kaart> deck) {
-		this.deck = deck;
-	}
-
 	public List<Speler> getLijstVanSpelers() {
 		return lijstVanSpelers;
-	}
-
-	public void setLijstVanSpelers(List<Speler> lijstVanSpelers) {
-		this.lijstVanSpelers = lijstVanSpelers;
 	}
 
 	public List<Stapel> getLijstVanStapels() {
 		return lijstVanStapels;
 	}
 
-	public void setLijstVanStapels(List<Stapel> lijstVanStapels) {
-		this.lijstVanStapels = lijstVanStapels;
-	}
-
 	public Kaart getInHand() {
 		return inHand;
 	}
-
+	
+	/* niet zeker of deze functie nodig is
 	public void setInHand(Kaart inHand) {
 		this.inHand = inHand;
-	}
+	}*/
 
 	public static int getKaartenPerKleur() {
 		return KAARTEN_PER_KLEUR;
