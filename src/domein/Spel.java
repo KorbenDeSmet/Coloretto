@@ -239,4 +239,10 @@ public class Spel {
 		
 		return String.format("%s heeft %n punten!", speler, totaalpunten);
 	}
+	
+	public void assignJoker(Speler speler, String nieuweKleur) {
+		//new kaart??
+			speler.getInventaris().remove(new Kaart("joker"));
+			speler.getInventaris().add(new Kaart(nieuweKleur));
+	}
 }
