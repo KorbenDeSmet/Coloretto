@@ -28,9 +28,4 @@ public class Kaart {
 		else
 			throw new IllegalArgumentException("Foute invoer!");
 	}
-	
-	@Override
-	public String toString() {
-			return this.kleur;
-	}
 }
