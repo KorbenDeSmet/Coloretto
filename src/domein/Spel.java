@@ -64,7 +64,7 @@ public class Spel {
 				deck.add(new Kaart(kleur));
 		}
 		for (int i = 0; i < AANTAL_JOKERS; i++) {
-			deck.add(new Kaart("joker"));
+			deck.add(new Kaart("Joker"));
 		}
 		for (int i = 0; i < AANTAL_PLUS2; i++) {
 			deck.add(new Kaart("+2"));
