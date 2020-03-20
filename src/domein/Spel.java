@@ -24,12 +24,12 @@ public class Spel {
 	}
 	
 	//getters en setters
-	public int getDeck() {
-		return deck.size();
-	}
-
 	public List<Speler> getLijstVanSpelers() {
 		return lijstVanSpelers;
+	}
+
+	public List<Kaart> getDeck() {
+		return deck;
 	}
 
 	public List<Stapel> getLijstVanStapels() {
@@ -77,6 +77,10 @@ public class Spel {
 			Speler speler = new Speler(naam);	
 			lijstVanSpelers.add(speler);
 		}
+	}
+	
+	public void shuffleLijstVanSpelers() {
+		Collections.shuffle(lijstVanSpelers);
 	}
 	
 	public void spelersStartInventoryGeven() {
