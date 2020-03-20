@@ -3,7 +3,6 @@ package ui;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Random;
 
 import domein.DomeinController;
 
@@ -44,29 +43,75 @@ public class ColorettoApplicatie {
 		domeinController.stapelsAanmaken();
 		
 		//random startspeler
-		Random randomGenerator = new Random();
-		//0- aantal in nextint(x - 1)
-		int startSpeler = randomGenerator.nextInt(domeinController.getLijstVanSpelers().size());
-		System.out.printf("De Beginnende speler is %s", domeinController.getLijstVanSpelers().get(startSpeler).getNaam());
+		domeinController.shuffleLijstVanSpelers();
+		System.out.printf("De Beginnende speler is %s", domeinController.getLijstVanSpelers().get(0).getNaam());
 		
 		//zeker zijn dat er een true waarde aan de boolean wordt gegeven als er minder dan x aantal kaarten in het deck zitten
 		boolean rondeStatus = false;
-		boolean alleSpelersZijnGeweest = false;
 		while (!rondeStatus) {
 			if (domeinController.getDeck() > 16) {
-				while (!alleSpelersZijnGeweest) {
+				for (int i = 0; i < domeinController.getLijstVanSpelers().size(); i++) {
+					System.out.print(domeinController.getLijstVanStapels().get(i).getStapel());
+				}
+				domeinController.neemKaart();
+				domeinController.getLijstVanStapels();
+				System.out.println("Op welke stapel wilt u de kaart leggen? (1-2-3-4-5)");
+				int stapelNR = scanner.nextInt();
+				
+				domeinController.plaatsKaartOpStapel(stapelNR, domeinController.getInHand());				
+				
+				for (int i = 0; i < domeinController.getLijstVanSpelers().size()-1; i++) {
+					//Controlleren of deze print werkt, anders foreach lus maken
+					System.out.print(domeinController.getLijstVanStapels());
+					System.out.println("Wilt u een kaart nemen of een stapel nemen? (1-2)");
+					int kaartOfSTapel = 0;
+					if (kaartOfSTapel == 1) {
+						domeinController.neemKaart();
+						for (int x = 0; x < domeinController.getLijstVanStapels().size(); x++) {
+							System.out.print(domeinController.getLijstVanStapels().get(x).getStapel());
+						}
+						System.out.println("Op welke stapel wilt u de kaart leggen? (1-2-3-4-5)");
+						int stapelNRtwee = scanner.nextInt();
+
+						domeinController.plaatsKaartOpStapel(stapelNRtwee, domeinController.getInHand());				
+					} else if (kaartOfSTapel == 2) {
+						for (int x = 0; x < domeinController.getLijstVanStapels().size(); x++) {
+							System.out.print(domeinController.getLijstVanStapels().get(x).getStapel());
+						}
+						System.out.println("Welke stapel wilt u nemen? (1-2-3-4-5)");
+						int stapelNRtwee = scanner.nextInt();
+						domeinController.stapelNemen(i, stapelNRtwee);
+					}
 					
 				}
 				
-				
-				
 			} else {
 				System.out.println("Dit is de laatste ronde!");
+				System.out.print(domeinController.getLijstVanStapels());
+				System.out.println("Wilt u een kaart nemen of een stapel nemen? (1-2)");
+				int kaartOfSTapel = 0;
+				if (kaartOfSTapel == 1) {
+					domeinController.neemKaart();
+					for (int x = 0; x < domeinController.getLijstVanStapels().size(); x++) {
+						System.out.print(domeinController.getLijstVanStapels().get(x).getStapel());
+					}
+					System.out.println("Op welke stapel wilt u de kaart leggen? (1-2-3-4-5)");
+					int stapelNRtwee = scanner.nextInt();
+
+					domeinController.plaatsKaartOpStapel(stapelNRtwee, domeinController.getInHand());				
+				} else if (kaartOfSTapel == 2) {
+					for (int x = 0; x < domeinController.getLijstVanStapels().size(); x++) {
+						System.out.print(domeinController.getLijstVanStapels().get(x).getStapel());
+					}
+					System.out.println("Welke stapel wilt u nemen? (1-2-3-4-5)");
+					int stapelNRtwee = scanner.nextInt();
+					int laatsteSpeler = domeinController.getLijstVanSpelers().size();
+					domeinController.stapelNemen(laatsteSpeler, stapelNRtwee);
+				}
 				
 				
-				
+				rondeStatus = false;
 			}
-			
 		}
 		
 		//for lus schrijven om alle spelers automatisch af te drukken
