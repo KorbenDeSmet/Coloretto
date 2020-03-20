@@ -24,8 +24,8 @@ public class Spel {
 	}
 	
 	//getters en setters
-	public List<Kaart> getDeck() {
-		return deck;
+	public int getDeck() {
+		return deck.size();
 	}
 
 	public List<Speler> getLijstVanSpelers() {
