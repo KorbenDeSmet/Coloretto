@@ -33,7 +33,7 @@ public class Speler {
 	}
 	
 	public void stapelToevoegenAanInventaris(Stapel stapel) {
-		for (Kaart kaart : inventaris) {
+		for (Kaart kaart : stapel.getStapel()) {
 			inventaris.add(kaart);
 		}
 	}
