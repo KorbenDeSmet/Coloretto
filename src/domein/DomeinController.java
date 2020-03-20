@@ -32,6 +32,10 @@ public class DomeinController {
 		return spel.stapelsTonen();
 	}
 	
+	public int getDeck() {
+		return spel.getDeck().size();
+	}
+	
 	public void plaatsKaartOpStapel(int stapelNR, Kaart inHand) {
 		spel.plaatsKaartOpStapel(stapelNR, inHand);
 	}
@@ -44,8 +48,8 @@ public class DomeinController {
 		return spel.scoreBerekenen(speler);
 	}
 	
-	public int getDeck(){
-		return spel.getDeck();
+	public void shuffleLijstVanSpelers() {
+		spel.shuffleLijstVanSpelers();
 	}
 	
 	public List<Speler> getLijstVanSpelers() {
@@ -57,7 +61,7 @@ public class DomeinController {
 	}
 	
 	//mogelijk .getkleur() weglaten en type veranderen naar Kaart
-	public String getInHand() {
-		return spel.getInHand().getKleur();
+	public Kaart getInHand() {
+		return spel.getInHand();
 	}
 }
