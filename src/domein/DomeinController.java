@@ -44,7 +44,7 @@ public class DomeinController {
 		return spel.scoreBerekenen(speler);
 	}
 	
-	public List<Kaart> getDeck(){
+	public int getDeck(){
 		return spel.getDeck();
 	}
 	
