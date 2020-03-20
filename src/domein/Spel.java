@@ -238,4 +238,11 @@ public class Spel {
 			speler.getInventaris().remove(new Kaart("joker"));
 			speler.getInventaris().add(new Kaart(nieuweKleur));
 	}
+	public int aantalJokers(Speler speler) {
+		return speler.aantalJokers();
+	}
+	
+	public boolean stapelIsFull(int stapel) {
+		return lijstVanStapels.get(stapel).isFull();
+	}
 }

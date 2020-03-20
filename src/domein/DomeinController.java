@@ -64,4 +64,15 @@ public class DomeinController {
 	public Kaart getInHand() {
 		return spel.getInHand();
 	}
+	
+	public boolean stapelIsFull(int stapel) {
+		return spel.stapelIsFull(stapel);
+	}
+	
+	public void assignJoker(Speler speler, String nieuweKleur) {
+		spel.assignJoker(speler, nieuweKleur);
+	}
+	public int aantalJokers(Speler speler) {
+		return spel.aantalJokers(speler);
+	}
 }
