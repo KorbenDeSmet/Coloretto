@@ -9,7 +9,7 @@ import domein.DomeinController;
 public class ColorettoApplicatie {
 	
 	public static void main(String[] args) {
-		// sysout + naamArray werkt perfect	
+		//problemen met die max limiet van een stapel te implementeren
 		DomeinController domeinController = new DomeinController();
 
 		Scanner scannerInt = new Scanner(System.in);
@@ -29,6 +29,7 @@ public class ColorettoApplicatie {
 					System.out.println("Het aantal spelers moet 4 of 5 zijn");
 					System.out.print("Met hoeveel willen jullie spelen?: ");
 					aantalSpelers = scannerInt.nextInt();
+					System.out.println();
 				}
 		}
 		
@@ -91,7 +92,7 @@ public class ColorettoApplicatie {
 							System.out.print("Op welke stapel wilt u de kaart leggen? (1-2-3-4-5): ");
 							int stapelNRtwee = scannerInt.nextInt();
 							System.out.println();
-							if (domeinController.getLijstVanStapels().get(stapelNRtwee).getStapel().size() == 3) {
+							if (domeinController.stapelIsFull(stapelNRtwee) == true) {
 								System.out.println("Deze stapel zit helaas al vol.");
 							} else {
 								domeinController.plaatsKaartOpStapel(stapelNRtwee, domeinController.getInHand());
@@ -129,7 +130,7 @@ public class ColorettoApplicatie {
 						System.out.print("Op welke stapel wilt u de kaart leggen? (1-2-3-4-5): ");
 						int stapelNRtwee = scannerInt.nextInt();
 						System.out.println();
-						if (domeinController.getLijstVanStapels().get(stapelNRtwee).getStapel().size() == 3) {
+						if (domeinController.stapelIsFull(stapelNRtwee) == true) {
 							System.out.println("Deze stapel zit helaas al vol.");
 						} else {
 							domeinController.plaatsKaartOpStapel(stapelNRtwee, domeinController.getInHand());
@@ -152,6 +153,15 @@ public class ColorettoApplicatie {
 				rondeStatus = false;
 			}
 		}
+		for (int i = 0; i < domeinController.getLijstVanSpelers().size(); i++) {
+			System.out.print("Speler " + domeinController.getLijstVanSpelers().get(i).getNaam() + "Heeft " + domeinController.aantalJokers(domeinController.getLijstVanSpelers().get(i)) + "Jokers");
+			for (int z = 0; z < domeinController.aantalJokers(domeinController.getLijstVanSpelers().get(i)); z++) {
+				System.out.println("Welk kleur wilt u deze Joker geven?");
+				String kleur = scannerString.nextLine();
+				domeinController.assignJoker(domeinController.getLijstVanSpelers().get(i), kleur);
+				System.out.println();
+			}
+		}		
 		
 		//van groot naar klein sorteren :(
 		for (int j = 0; j < domeinController.getLijstVanSpelers().size(); j++) {
