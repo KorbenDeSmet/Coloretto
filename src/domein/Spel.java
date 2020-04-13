@@ -11,8 +11,8 @@ import domein.Stapel;
 public class Spel {
 	//attributen
 	private List<Kaart> deck = new ArrayList<Kaart>();
-	private List<Speler> lijstVanSpelers = new ArrayList<Speler>();
-	private List<Stapel> lijstVanStapels = new ArrayList<Stapel>();
+	private List<Speler> spelers = new ArrayList<Speler>();
+	private List<Stapel> stapels = new ArrayList<Stapel>();
 	private static final int KAARTEN_PER_KLEUR = 9;
 	private static final int AANTAL_JOKERS = 3;
 	private static final int AANTAL_PLUS2 = 10;
@@ -24,16 +24,16 @@ public class Spel {
 	}
 	
 	//getters en setters
-	public List<Speler> getLijstVanSpelers() {
-		return lijstVanSpelers;
+	public List<Speler> getSpelers() {
+		return spelers;
 	}
 
 	public List<Kaart> getDeck() {
 		return deck;
 	}
 
-	public List<Stapel> getLijstVanStapels() {
-		return lijstVanStapels;
+	public List<Stapel> getStapels() {
+		return stapels;
 	}
 
 	public Kaart getInHand() {
@@ -59,7 +59,7 @@ public class Spel {
 	
 	//functies
 	public void deckAanmaken() {
-		for (String kleur : Kaart.getKleurenlijst()) {
+		for (String kleur : Kaart.getKleuren()) {
 			for (int i = 0; i < KAARTEN_PER_KLEUR; i++)
 				deck.add(new Kaart(kleur));
 		}
@@ -75,19 +75,19 @@ public class Spel {
 	public void spelersToevoegen(List<String> namenSpelers){
 		for (String naam : namenSpelers) {
 			Speler speler = new Speler(naam);	
-			lijstVanSpelers.add(speler);
+			spelers.add(speler);
 		}
 	}
 	
-	public void shuffleLijstVanSpelers() {
-		Collections.shuffle(lijstVanSpelers);
+	public void shuffleSpelers() {
+		Collections.shuffle(spelers);
 	}
 	
 	public void spelersStartInventoryGeven() {
-		for (Speler spelerDieKaartKrijgt : lijstVanSpelers) {
+		for (Speler spelerDieKaartKrijgt : spelers) {
 			boolean status = false;
 			while (!status) {
-				for (Speler spelerChecken : lijstVanSpelers) {
+				for (Speler spelerChecken : spelers) {
 					if (spelerDieKaartKrijgt.getInventaris() == spelerChecken.getInventaris()) {
 						spelerDieKaartKrijgt.kaartToevoegenAanInventaris(deck.get(deck.size()-1));
 						deck.remove(deck.size()-1);
@@ -108,26 +108,26 @@ public class Spel {
 	}
 	
 	public List<Stapel> stapelsTonen() {
-		return lijstVanStapels;
+		return stapels;
 	}
 	
 	public void plaatsKaartOpStapel(int stapel, Kaart inHand){
 		//stapel kiezen
 		switch(stapel) {
 		  case 1:
-			lijstVanStapels.get(0).stapel.add(inHand);
+			  stapels.get(0).stapel.add(inHand);
 		    break;
 		  case 2:
-			lijstVanStapels.get(1).stapel.add(inHand);
+			  stapels.get(1).stapel.add(inHand);
 		    break;
 		  case 3:
-			lijstVanStapels.get(2).stapel.add(inHand);
+			  stapels.get(2).stapel.add(inHand);
 			break;
 		  case 4:
-			lijstVanStapels.get(3).stapel.add(inHand);
+			  stapels.get(3).stapel.add(inHand);
 			break;
 		  case 5:
-			lijstVanStapels.get(4).stapel.add(inHand);
+			  stapels.get(4).stapel.add(inHand);
 			break;
 		}
 	}
@@ -135,32 +135,32 @@ public class Spel {
 	public void stapelNemen(int nummerVanSpeler, int stapelNR) {
 		switch(stapelNR) {
 		  case 1:
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(0));
-			  lijstVanStapels.get(0).stapel.clear();
+			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(0));
+			  stapels.get(0).stapel.clear();
 		    break;
 		  case 2:
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(1));
-			  lijstVanStapels.get(1).stapel.clear();
+			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(1));
+			  stapels.get(1).stapel.clear();
 		    break;
 		  case 3:
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(2));
-			  lijstVanStapels.get(2).stapel.clear();
+			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(2));
+			  stapels.get(2).stapel.clear();
 			break;
 		  case 4:
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(3));
-			  lijstVanStapels.get(3).stapel.clear();
+			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(3));
+			  stapels.get(3).stapel.clear();
 			break;
 		  case 5:
-			  lijstVanSpelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(lijstVanStapels.get(4));
-			  lijstVanStapels.get(4).stapel.clear();
+			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(4));
+			  stapels.get(4).stapel.clear();
 			break;
 		}
 	}
 	 	
 	public void stapelsAanmaken() {
-		for (int i = 0; i < lijstVanSpelers.size(); i++) {
+		for (int i = 0; i < spelers.size(); i++) {
 			Stapel stapel = new Stapel(i);
-			lijstVanStapels.add(stapel);
+			stapels.add(stapel);
 		}
 	}
 	
@@ -243,6 +243,6 @@ public class Spel {
 	}
 	
 	public boolean stapelIsFull(int stapel) {
-		return lijstVanStapels.get(stapel).isFull();
+		return stapels.get(stapel).isFull();
 	}
 }

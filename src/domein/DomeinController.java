@@ -49,15 +49,15 @@ public class DomeinController {
 	}
 	
 	public void shuffleLijstVanSpelers() {
-		spel.shuffleLijstVanSpelers();
+		spel.shuffleSpelers();
 	}
 	
 	public List<Speler> getLijstVanSpelers() {
-		return spel.getLijstVanSpelers();
+		return spel.getSpelers();
 	}
 	
 	public List<Stapel> getLijstVanStapels() {
-		return spel.getLijstVanStapels();
+		return spel.getStapels();
 	}
 	
 	//mogelijk .getkleur() weglaten en type veranderen naar Kaart

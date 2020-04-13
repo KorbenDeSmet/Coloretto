@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Kaart {
 	private String kleur;
-	private static final List<String> KLEURENLIJST = new ArrayList<>(
+	private static final List<String> KLEUREN = new ArrayList<>(
 			Arrays.asList("Rood", "Paars", "Blauw", "Groen", "Bruin", "Oranje", "Geel", "+2", "Joker")
 	);
 	
@@ -18,12 +18,12 @@ public class Kaart {
 		return kleur;
 	}
 
-	public static List<String> getKleurenlijst() {
-		return KLEURENLIJST;
+	public static List<String> getKleuren() {
+		return KLEUREN;
 	}
 
 	public void setKleur(String kleur) {
-		if (KLEURENLIJST.contains(kleur))
+		if (KLEUREN.contains(kleur))
 			this.kleur = kleur;
 		else
 			throw new IllegalArgumentException("Foute invoer!");
