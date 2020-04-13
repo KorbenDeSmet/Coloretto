@@ -1,4 +1,4 @@
-package domein;
+ package domein;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,9 +13,9 @@ public class Spel {
 	private List<Kaart> deck = new ArrayList<Kaart>();
 	private List<Speler> spelers = new ArrayList<Speler>();
 	private List<Stapel> stapels = new ArrayList<Stapel>();
-	private static final int KAARTEN_PER_KLEUR = 9;
-	private static final int AANTAL_JOKERS = 3;
-	private static final int AANTAL_PLUS2 = 10;
+	public static int KAARTEN_PER_KLEUR = 9;
+	public static int AANTAL_JOKERS = 3;
+	public static int AANTAL_PLUS2 = 10;
 	private Kaart inHand;
 	
 	//constructors 	
@@ -44,18 +44,6 @@ public class Spel {
 	public void setInHand(Kaart inHand) {
 		this.inHand = inHand;
 	}*/
-
-	public static int getKaartenPerKleur() {
-		return KAARTEN_PER_KLEUR;
-	}
-
-	public static int getAantalJokers() {
-		return AANTAL_JOKERS;
-	}
-
-	public static int getAantalPlus2() {
-		return AANTAL_PLUS2;
-	}
 	
 	//functies
 	public void deckAanmaken() {
@@ -115,19 +103,19 @@ public class Spel {
 		//stapel kiezen
 		switch(stapel) {
 		  case 1:
-			  stapels.get(0).stapel.add(inHand);
+			  stapels.get(0).Kaarten.add(inHand);
 		    break;
 		  case 2:
-			  stapels.get(1).stapel.add(inHand);
+			  stapels.get(1).Kaarten.add(inHand);
 		    break;
 		  case 3:
-			  stapels.get(2).stapel.add(inHand);
+			  stapels.get(2).Kaarten.add(inHand);
 			break;
 		  case 4:
-			  stapels.get(3).stapel.add(inHand);
+			  stapels.get(3).Kaarten.add(inHand);
 			break;
 		  case 5:
-			  stapels.get(4).stapel.add(inHand);
+			  stapels.get(4).Kaarten.add(inHand);
 			break;
 		}
 	}
@@ -136,23 +124,23 @@ public class Spel {
 		switch(stapelNR) {
 		  case 1:
 			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(0));
-			  stapels.get(0).stapel.clear();
+			  stapels.get(0).Kaarten.clear();
 		    break;
 		  case 2:
 			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(1));
-			  stapels.get(1).stapel.clear();
+			  stapels.get(1).Kaarten.clear();
 		    break;
 		  case 3:
 			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(2));
-			  stapels.get(2).stapel.clear();
+			  stapels.get(2).Kaarten.clear();
 			break;
 		  case 4:
 			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(3));
-			  stapels.get(3).stapel.clear();
+			  stapels.get(3).Kaarten.clear();
 			break;
 		  case 5:
 			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(4));
-			  stapels.get(4).stapel.clear();
+			  stapels.get(4).Kaarten.clear();
 			break;
 		}
 	}
