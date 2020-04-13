@@ -9,21 +9,21 @@ public class Stapel extends Spel{
 
 	//attributen
 	private int nummer;
-	List<Kaart> stapel;
+	List<Kaart> Kaarten;
 
 	//constructors
 	public Stapel(int nummer) {
-		this.stapel = new ArrayList<Kaart>();
+		this.Kaarten = new ArrayList<Kaart>();
 		this.nummer = nummer;
 	}
 	
 	//getters en setters
-	public List<Kaart> getStapel() {
-		return stapel;
+	public List<Kaart> getKaarten() {
+		return Kaarten;
 	}
 
-	public void setStapel(List<Kaart> stapel) {
-		this.stapel = stapel;
+	public void setKaarten(List<Kaart> stapel) {
+		this.Kaarten = stapel;
 	}
 	
 	public int getNummer() {
@@ -37,14 +37,14 @@ public class Stapel extends Spel{
 	//functies
 	public void kaartToevoegen(Kaart kaart) 
 	{
-		getStapel().add(kaart);
+		getKaarten().add(kaart);
 	}
 	
 	public boolean isEmpty() {
-		return getStapel().isEmpty();
+		return getKaarten().isEmpty();
 	}
 	
 	public boolean isFull() {
-		return getStapel().size() == 3;
+		return getKaarten().size() == 3;
 	}
 }

@@ -52,11 +52,11 @@ public class DomeinController {
 		spel.shuffleSpelers();
 	}
 	
-	public List<Speler> getLijstVanSpelers() {
+	public List<Speler> getSpelers() {
 		return spel.getSpelers();
 	}
 	
-	public List<Stapel> getLijstVanStapels() {
+	public List<Stapel> getStapels() {
 		return spel.getStapels();
 	}
 	

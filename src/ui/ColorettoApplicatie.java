@@ -48,18 +48,18 @@ public class ColorettoApplicatie {
 		
 		//random startspeler
 		domeinController.shuffleLijstVanSpelers();
-		System.out.printf("De beginnende speler is %s! %n", domeinController.getLijstVanSpelers().get(0).getNaam());
+		System.out.printf("De beginnende speler is %s! %n", domeinController.getSpelers().get(0).getNaam());
 		System.out.println();
 		//zeker zijn dat er een true waarde aan de boolean wordt gegeven als er minder dan x aantal kaarten in het deck zitten
 		boolean rondeStatus = false;
 		
-		for (int i = 0; i < domeinController.getLijstVanSpelers().size(); i++) {
-			System.out.print("Stapel " + (i+1) +": " + domeinController.getLijstVanStapels().get(i).getStapel());
+		for (int i = 0; i < domeinController.getSpelers().size(); i++) {
+			System.out.print("Stapel " + (i+1) +": " + domeinController.getStapels().get(i).getKaarten());
 			System.out.println();
 		}
 		System.out.println();
 		domeinController.neemKaart();
-		domeinController.getLijstVanStapels();
+		domeinController.getStapels();
 		System.out.print("Op welke stapel wilt u de kaart leggen? (1-2-3-4-5): ");
 		int stapelNR = scannerInt.nextInt();
 		System.out.println();
@@ -68,10 +68,10 @@ public class ColorettoApplicatie {
 		
 		while (!rondeStatus) {
 			if (domeinController.getDeck() > 16) {
-				for (int i = 0; i < domeinController.getLijstVanSpelers().size()-1; i++) {
+				for (int i = 0; i < domeinController.getSpelers().size()-1; i++) {
 					//Controlleren of deze print werkt, anders foreach lus maken
-					for (int a = 0; a < domeinController.getLijstVanSpelers().size(); a++) {
-						System.out.print("Stapel " + (a+1) +": " + domeinController.getLijstVanStapels().get(a).getStapel());
+					for (int a = 0; a < domeinController.getSpelers().size(); a++) {
+						System.out.print("Stapel " + (a+1) +": " + domeinController.getStapels().get(a).getKaarten());
 						System.out.println();
 					}
 					System.out.println();
@@ -82,8 +82,8 @@ public class ColorettoApplicatie {
 					
 					if (kaartOfStapel == 1) {
 						domeinController.neemKaart();
-						for (int x = 0; x < domeinController.getLijstVanStapels().size(); x++) {
-							System.out.print("Stapel " + (x+1) +": " + domeinController.getLijstVanStapels().get(x).getStapel());
+						for (int x = 0; x < domeinController.getStapels().size(); x++) {
+							System.out.print("Stapel " + (x+1) +": " + domeinController.getStapels().get(x).getKaarten());
 							System.out.println();
 						}
 						System.out.println();
@@ -100,8 +100,8 @@ public class ColorettoApplicatie {
 							}
 						}				
 					} else if (kaartOfStapel == 2) {
-						for (int x = 0; x < domeinController.getLijstVanStapels().size(); x++) {
-							System.out.print("Stapel " + (x+1) +": " + domeinController.getLijstVanStapels().get(x).getStapel());
+						for (int x = 0; x < domeinController.getStapels().size(); x++) {
+							System.out.print("Stapel " + (x+1) +": " + domeinController.getStapels().get(x).getKaarten());
 							System.out.println();
 						}
 						System.out.println();
@@ -115,14 +115,14 @@ public class ColorettoApplicatie {
 				
 			} else {
 				System.out.println("Dit is de laatste ronde!");
-				System.out.print(domeinController.getLijstVanStapels());
+				System.out.print(domeinController.getStapels());
 				System.out.print("Wilt u een kaart nemen of een stapel nemen? (1-2): ");
 				System.out.println();
 				int kaartOfSTapel = 0;
 				if (kaartOfSTapel == 1) {
 					domeinController.neemKaart();
-					for (int x = 0; x < domeinController.getLijstVanStapels().size(); x++) {
-						System.out.print(domeinController.getLijstVanStapels().get(x).getStapel());
+					for (int x = 0; x < domeinController.getStapels().size(); x++) {
+						System.out.print(domeinController.getStapels().get(x).getKaarten());
 						System.out.println();
 					}
 					boolean loop2 = false;
@@ -138,14 +138,14 @@ public class ColorettoApplicatie {
 						}
 					}		
 				} else if (kaartOfSTapel == 2) {
-					for (int x = 0; x < domeinController.getLijstVanStapels().size(); x++) {
-						System.out.print(domeinController.getLijstVanStapels().get(x).getStapel());
+					for (int x = 0; x < domeinController.getStapels().size(); x++) {
+						System.out.print(domeinController.getStapels().get(x).getKaarten());
 					}
 					System.out.print("Welke stapel wilt u nemen? (1-2-3-4-5): ");
 					int stapelNRtwee = scannerInt.nextInt();
 					System.out.println();
 					
-					int laatsteSpeler = domeinController.getLijstVanSpelers().size();
+					int laatsteSpeler = domeinController.getSpelers().size();
 					domeinController.stapelNemen(laatsteSpeler, stapelNRtwee);
 				}
 				
@@ -153,19 +153,19 @@ public class ColorettoApplicatie {
 				rondeStatus = false;
 			}
 		}
-		for (int i = 0; i < domeinController.getLijstVanSpelers().size(); i++) {
-			System.out.print("Speler " + domeinController.getLijstVanSpelers().get(i).getNaam() + "Heeft " + domeinController.aantalJokers(domeinController.getLijstVanSpelers().get(i)) + "Jokers");
-			for (int z = 0; z < domeinController.aantalJokers(domeinController.getLijstVanSpelers().get(i)); z++) {
+		for (int i = 0; i < domeinController.getSpelers().size(); i++) {
+			System.out.print("Speler " + domeinController.getSpelers().get(i).getNaam() + "Heeft " + domeinController.aantalJokers(domeinController.getSpelers().get(i)) + "Jokers");
+			for (int z = 0; z < domeinController.aantalJokers(domeinController.getSpelers().get(i)); z++) {
 				System.out.println("Welk kleur wilt u deze Joker geven?");
 				String kleur = scannerString.nextLine();
-				domeinController.assignJoker(domeinController.getLijstVanSpelers().get(i), kleur);
+				domeinController.assignJoker(domeinController.getSpelers().get(i), kleur);
 				System.out.println();
 			}
 		}		
 		
 		//van groot naar klein sorteren :(
-		for (int j = 0; j < domeinController.getLijstVanSpelers().size(); j++) {
-			domeinController.scoreBerekenen(domeinController.getLijstVanSpelers().get(j));
+		for (int j = 0; j < domeinController.getSpelers().size(); j++) {
+			domeinController.scoreBerekenen(domeinController.getSpelers().get(j));
 		}
 		
 		scannerInt.close();
