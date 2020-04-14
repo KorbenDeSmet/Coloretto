@@ -70,7 +70,7 @@ public class ColorettoApplicatie {
 			if (domeinController.getDeck() > 16) {
 				for (int i = 0; i < domeinController.getSpelers().size()-1; i++) {
 					
-					System.out.printf("De speler die aan de beurt is heet %s! %n", domeinController.getSpelers().get(i+1).getNaam());
+					System.out.printf("%s is aan de beurt! %n", domeinController.getSpelers().get(i+1).getNaam());
 					//Controlleren of deze print werkt, anders foreach lus maken
 					for (int a = 0; a < domeinController.getStapels().size(); a++) {
 						System.out.print("Stapel " + (domeinController.getStapels().get(a).getNummer()+1) +": " + domeinController.getStapels().get(a).getKaarten());
