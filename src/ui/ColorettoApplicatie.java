@@ -73,7 +73,7 @@ public class ColorettoApplicatie {
 					System.out.printf("%s is aan de beurt! %n", domeinController.getSpelers().get(i+1).getNaam());
 					//Controlleren of deze print werkt, anders foreach lus maken
 					for (int a = 0; a < domeinController.getStapels().size(); a++) {
-						System.out.print("Stapel " + (domeinController.getStapels().get(a).getNummer()+1) +": " + domeinController.getStapels().get(a).getKaarten());
+						System.out.print("Stapel " + (a+1) +": " + domeinController.getStapels().get(a).getKaarten());
 						System.out.println();
 					}
 					int kaartOfStapel = 0;
