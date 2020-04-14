@@ -123,24 +123,29 @@ public class Spel {
 	public void stapelNemen(int nummerVanSpeler, int stapelNR) {
 		switch(stapelNR) {
 		  case 1:
-			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(0));
+			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(0));
 			  stapels.get(0).Kaarten.clear();
+			  stapels.remove(0);
 		    break;
 		  case 2:
-			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(1));
+			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(1));
 			  stapels.get(1).Kaarten.clear();
+			  stapels.remove(1);
 		    break;
 		  case 3:
-			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(2));
+			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(2));
 			  stapels.get(2).Kaarten.clear();
+			  stapels.remove(2);
 			break;
 		  case 4:
-			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(3));
+			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(3));
 			  stapels.get(3).Kaarten.clear();
+			  stapels.remove(3);
 			break;
 		  case 5:
-			  spelers.get(nummerVanSpeler-1).stapelToevoegenAanInventaris(stapels.get(4));
+			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(4));
 			  stapels.get(4).Kaarten.clear();
+			  stapels.remove(4);
 			break;
 		}
 	}

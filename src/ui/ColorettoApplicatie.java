@@ -32,7 +32,6 @@ public class ColorettoApplicatie {
 					System.out.println();
 				}
 		}
-		
 		List<String> spelers = new ArrayList<String>();
 		for (int i = 0; i < aantalSpelers; i++) 
 		{
@@ -58,7 +57,10 @@ public class ColorettoApplicatie {
 		}
 		domeinController.neemKaart();
 		domeinController.getStapels();
-		System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4-5): ",domeinController.getInHand());
+		if (aantalSpelers == 4)
+			System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4): ",domeinController.getInHand());
+		else 
+			System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4-5): ",domeinController.getInHand());
 		int stapelNR = scannerInt.nextInt();
 		System.out.println();
 		
@@ -70,8 +72,8 @@ public class ColorettoApplicatie {
 					
 					System.out.printf("De speler die aan de beurt is heet %s! %n", domeinController.getSpelers().get(i+1).getNaam());
 					//Controlleren of deze print werkt, anders foreach lus maken
-					for (int a = 0; a < domeinController.getSpelers().size(); a++) {
-						System.out.print("Stapel " + (a+1) +": " + domeinController.getStapels().get(a).getKaarten());
+					for (int a = 0; a < domeinController.getStapels().size(); a++) {
+						System.out.print("Stapel " + (domeinController.getStapels().get(a).getNummer()+1) +": " + domeinController.getStapels().get(a).getKaarten());
 						System.out.println();
 					}
 					int kaartOfStapel = 0;
@@ -82,18 +84,33 @@ public class ColorettoApplicatie {
 						domeinController.neemKaart();
 						boolean loop = false;
 						while (!loop) {
-							System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4-5): ",domeinController.getInHand());
+							if (aantalSpelers == 4)
+								System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4): ",domeinController.getInHand());
+							else 
+								System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4-5): ",domeinController.getInHand());
 							int stapelNRtwee = scannerInt.nextInt();
 							System.out.println();
-							if (domeinController.stapelIsFull(stapelNRtwee) == true) {
+							
+							
+							
+							if (domeinController.getStapels().get(stapelNRtwee).isFull()==true)
+								System.out.println("Deze stapel zit helaas al vol.");
+							else {
+								domeinController.plaatsKaartOpStapel(stapelNRtwee, domeinController.getInHand());
+								loop = true;
+							}
+							/*if (domeinController.stapelIsFull(stapelNRtwee) == true) {
 								System.out.println("Deze stapel zit helaas al vol.");
 							} else {
 								domeinController.plaatsKaartOpStapel(stapelNRtwee, domeinController.getInHand());
 								loop = true;
-							}
+							}*/
 						}				
 					} else if (kaartOfStapel == 2) {
-						System.out.print("Welke stapel wilt u nemen? (1-2-3-4-5): ");
+						if (aantalSpelers == 4)
+							System.out.print("Welke stapel wilt u nemen? (1-2-3-4): ");
+						else 
+							System.out.print("Welke stapel wilt u nemen? (1-2-3-4-5): ");
 						int stapelNRtwee = scannerInt.nextInt();
 						System.out.println();
 						domeinController.stapelNemen(i, stapelNRtwee);
@@ -115,7 +132,10 @@ public class ColorettoApplicatie {
 					}
 					boolean loop2 = false;
 					while (!loop2) {
-						System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4-5): ",domeinController.getInHand());
+						if (aantalSpelers == 4)
+							System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4): ",domeinController.getInHand());
+						else 
+							System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4-5): ",domeinController.getInHand());
 						int stapelNRtwee = scannerInt.nextInt();
 						System.out.println();
 						if (domeinController.stapelIsFull(stapelNRtwee) == true) {
@@ -129,7 +149,10 @@ public class ColorettoApplicatie {
 					for (int x = 0; x < domeinController.getStapels().size(); x++) {
 						System.out.print(domeinController.getStapels().get(x).getKaarten());
 					}
-					System.out.print("Welke stapel wilt u nemen? (1-2-3-4-5): ");
+					if (aantalSpelers == 4)
+						System.out.print("Welke stapel wilt u nemen? (1-2-3-4): ");
+					else 
+						System.out.print("Welke stapel wilt u nemen? (1-2-3-4-5): ");
 					int stapelNRtwee = scannerInt.nextInt();
 					System.out.println();
 					
