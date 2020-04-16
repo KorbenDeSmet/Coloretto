@@ -57,10 +57,7 @@ public class ColorettoApplicatie {
 		}
 		domeinController.neemKaart();
 		domeinController.getStapels();
-		if (aantalSpelers == 4)
-			System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4): ",domeinController.getInHand());
-		else 
-			System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4-5): ",domeinController.getInHand());
+		System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? %s: ",domeinController.getInHand(), domeinController.aantalStapelsToString());
 		int stapelNR = scannerInt.nextInt();
 		System.out.println();
 		
@@ -84,10 +81,7 @@ public class ColorettoApplicatie {
 						domeinController.neemKaart();
 						boolean loop = false;
 						while (!loop) {
-							if (aantalSpelers == 4)
-								System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4): ",domeinController.getInHand());
-							else 
-								System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4-5): ",domeinController.getInHand());
+							System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? %s: ",domeinController.getInHand(), domeinController.aantalStapelsToString());
 							int stapelNRtwee = scannerInt.nextInt();
 							System.out.println();
 							
@@ -107,10 +101,7 @@ public class ColorettoApplicatie {
 							}*/
 						}				
 					} else if (kaartOfStapel == 2) {
-						if (aantalSpelers == 4)
-							System.out.print("Welke stapel wilt u nemen? (1-2-3-4): ");
-						else 
-							System.out.print("Welke stapel wilt u nemen? (1-2-3-4-5): ");
+						System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? %s: ",domeinController.getInHand(), domeinController.aantalStapelsToString());
 						int stapelNRtwee = scannerInt.nextInt();
 						System.out.println();
 						domeinController.stapelNemen(i, stapelNRtwee);
@@ -132,10 +123,7 @@ public class ColorettoApplicatie {
 					}
 					boolean loop2 = false;
 					while (!loop2) {
-						if (aantalSpelers == 4)
-							System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4): ",domeinController.getInHand());
-						else 
-							System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? (1-2-3-4-5): ",domeinController.getInHand());
+						System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? %s: ",domeinController.getInHand(), domeinController.aantalStapelsToString());
 						int stapelNRtwee = scannerInt.nextInt();
 						System.out.println();
 						if (domeinController.stapelIsFull(stapelNRtwee) == true) {
@@ -149,10 +137,7 @@ public class ColorettoApplicatie {
 					for (int x = 0; x < domeinController.getStapels().size(); x++) {
 						System.out.print(domeinController.getStapels().get(x).getKaarten());
 					}
-					if (aantalSpelers == 4)
-						System.out.print("Welke stapel wilt u nemen? (1-2-3-4): ");
-					else 
-						System.out.print("Welke stapel wilt u nemen? (1-2-3-4-5): ");
+					System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? %s: ",domeinController.getInHand(), domeinController.aantalStapelsToString());
 					int stapelNRtwee = scannerInt.nextInt();
 					System.out.println();
 					

@@ -238,4 +238,26 @@ public class Spel {
 	public boolean stapelIsFull(int stapel) {
 		return stapels.get(stapel).isFull();
 	}
+	
+	public String aantalStapelsToString() {
+		String output = "";
+		switch (stapels.size()) {
+		case 5:
+			output = "(1-2-3-4-5)";
+			break;
+		case 4:
+			output = "(1-2-3-4)";
+			break;
+		case 3:
+			output = "(1-2-3)";
+			break;
+		case 2:
+			output = "(1-2)";
+			break;
+		case 1:
+			output = "Neem stapel 1";
+			break;
+		}
+		return output;
+	}
 }

@@ -75,4 +75,8 @@ public class DomeinController {
 	public int aantalJokers(Speler speler) {
 		return spel.aantalJokers(speler);
 	}
+	
+	public String aantalStapelsToString() {
+		return spel.aantalStapelsToString();
+	}
 }
