@@ -45,6 +45,10 @@ public class Stapel extends Spel{
 	}
 	
 	public boolean isFull() {
-		return getKaarten().size() == 3;
+		boolean value;
+		if (getKaarten().size() == 3)
+			value = true;
+			else value = false;
+		return value;
 	}
 }

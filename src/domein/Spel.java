@@ -260,4 +260,12 @@ public class Spel {
 		}
 		return output;
 	}
+	
+	public boolean isStapelVol(int stapel) {
+		boolean value;
+		if (stapels.get(stapel).isFull() == true)
+			value = true;
+		else value = false;
+		return value;
+	}
 }

@@ -86,8 +86,8 @@ public class ColorettoApplicatie {
 							System.out.println();
 							
 							
-							
-							if (domeinController.getStapels().get(stapelNRtwee).isFull()==true)
+							//aanpassing
+							if (domeinController.isStapelVol(stapelNRtwee)==true)
 								System.out.println("Deze stapel zit helaas al vol.");
 							else {
 								domeinController.plaatsKaartOpStapel(stapelNRtwee, domeinController.getInHand());

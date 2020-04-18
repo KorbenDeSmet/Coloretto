@@ -79,4 +79,8 @@ public class DomeinController {
 	public String aantalStapelsToString() {
 		return spel.aantalStapelsToString();
 	}
+	
+	public boolean isStapelVol(int stapel) {
+		return spel.isStapelVol(stapel);
+	}
 }
