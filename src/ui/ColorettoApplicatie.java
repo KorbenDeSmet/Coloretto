@@ -159,9 +159,71 @@ public class ColorettoApplicatie {
 			}
 		}		
 		
-		//van groot naar klein sorteren :(
-		for (int j = 0; j < domeinController.getSpelers().size(); j++) {
-			domeinController.scoreBerekenen(domeinController.getSpelers().get(j));
+		//van groot naar klein sorteren :)
+		int scoreArray[] = new int[domeinController.getSpelers().size()];
+		int gesorteerdeScoreArray[] = new int[domeinController.getSpelers().size()];
+		
+		int tempScoreMin = 1000;
+		int tempScoreTweedeMin = 1000;
+		int tempScoreDerdeMin = 1000;
+		int tempScoreVierdeMin = 1000;
+		int tempScoreVijfdeMin = 1000;
+		
+		for (int i = 0; i < domeinController.getSpelers().size(); i++) {
+			scoreArray[i] = Integer.parseInt(domeinController.scoreBerekenen(domeinController.getSpelers().get(i)));
+		}
+		
+		
+		tempScoreMin = scoreArray[0];
+		for(int i=0 ; i < scoreArray.length ; i++) {
+			if(tempScoreMin <= scoreArray[i]) {
+				tempScoreMin = scoreArray[i];
+			}
+		}
+		
+		for(int i=0 ; i < scoreArray.length ; i++) {
+			if(scoreArray[i] > tempScoreMin) {
+				if(tempScoreTweedeMin <= scoreArray[i]) {
+					tempScoreTweedeMin = scoreArray[i];
+				}
+			}
+	    }
+		
+		for(int i=0 ; i < scoreArray.length ; i++) {
+			if(scoreArray[i] > tempScoreTweedeMin) {
+				if(tempScoreDerdeMin <= scoreArray[i]) {
+					tempScoreDerdeMin = scoreArray[i];
+				}
+			}
+	    }
+		
+		for(int i=0 ; i < scoreArray.length ; i++) {
+			if(scoreArray[i] > tempScoreDerdeMin) {
+				if(tempScoreVierdeMin <= scoreArray[i]) {
+					tempScoreVierdeMin = scoreArray[i];
+				}
+			}
+	    }
+		
+		if(scoreArray.length == 5) {
+		    for(int i=0 ; i < scoreArray.length ; i++) {
+			    if(scoreArray[i] > tempScoreVierdeMin) {
+				   if(tempScoreVijfdeMin <= scoreArray[i]) {
+					    tempScoreVijfdeMin = scoreArray[i];
+				   }
+			    }
+	        }
+		    gesorteerdeScoreArray[4] = tempScoreVijfdeMin;
+		}
+		
+		gesorteerdeScoreArray[0] = tempScoreMin;
+		gesorteerdeScoreArray[1] = tempScoreTweedeMin;
+		gesorteerdeScoreArray[2] = tempScoreDerdeMin;
+		gesorteerdeScoreArray[3] = tempScoreVierdeMin;
+		
+		
+		for(int i=0 ; i < gesorteerdeScoreArray.length ; i++) {
+		    System.out.println(gesorteerdeScoreArray[i]);
 		}
 		
 		scannerInt.close();
