@@ -5,7 +5,7 @@ import java.util.List;
 import domein.Spel;
 
 public class DomeinController {
-	
+
 	private Spel spel;
 	
 	public void startSpel() {
