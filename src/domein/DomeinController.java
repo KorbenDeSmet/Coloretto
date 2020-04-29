@@ -81,6 +81,6 @@ public class DomeinController {
 	}
 	
 	public boolean isStapelVol(int stapel) {
-		return spel.isStapelVol(stapel);
+		return spel.isStapelVol(stapel-1);
 	}
 }
