@@ -32,28 +32,14 @@ public class WelkomScherm extends GridPane {
 		 fileMenu.getItems().addAll(infoMenuItem, new SeparatorMenuItem(),highScoreMenuItem, new SeparatorMenuItem(),  exitMenuItem);
 		 menuBar.getMenus().add(fileMenu);
 		 
-		 //infoMenuItem.setOnAction(this::aboutClicked);
-		 super.getChildren().addAll();
+		 //infoMenuItem.setOnAction(this::infoClicked);
 		 exitMenuItem.setOnAction( new EventHandler<ActionEvent>() {
 			 @Override
 			 public void handle(ActionEvent e) {
 				 Platform.exit();
 			 } 	 
 		 });
-				
-			/*toolbar
-		 	
-		 Button btnRed = new Button("with");
-		 Button btnGreen = new Button("green"); 
-		 Button btnBlue = new Button("blue"); 
-		 Button btnBlack = new Button("black");
-		 ToolBar tooolBar = new ToolBar( new Label("background color")
-				 				,btnRed,btnGreen,btnBlue,btnBlack);
-		 toolBar.setOrientation(Orientation.HORIZONTAL);
-			*/	 
-		 
-	
-		
+						
 	}	
 	
 }
