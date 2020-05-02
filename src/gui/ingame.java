@@ -1,5 +1,6 @@
 package gui;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import domein.*;
@@ -20,11 +21,21 @@ public class ingame extends GridPane{
 
 	DomeinController domeinController = new DomeinController();
 	
-	
+	//alle fotos aan de bepaalde kaartnaam mappen 
+	private static final Map<String, Image> kaarten = new HashMap<String, Image>();
 	public ingame (List<String> KAARTTYPES) {
 		
+	
+		kaarten.put("+2", new Image(getClass().getResourceAsStream("/fotos/+2.GIF")));
+		kaarten.put("blauw", new Image(getClass().getResourceAsStream("/fotos/-blauw.GIF")));
+		kaarten.put("bruin", new Image(getClass().getResourceAsStream("/fotos/bruin.GIF")));
+		kaarten.put("geel", new Image(getClass().getResourceAsStream("/fotos/geel.GIF")));
 		
-		
+		kaarten.put("groen", new Image(getClass().getResourceAsStream("/fotos/groen.GIF")));
+		kaarten.put("joker", new Image(getClass().getResourceAsStream("/fotos/joker.GIF")));
+		kaarten.put("orange", new Image(getClass().getResourceAsStream("/fotos/orange.GIF")));
+		kaarten.put("paars", new Image(getClass().getResourceAsStream("/fotos/paars.GIF")));
+		kaarten.put("rood", new Image(getClass().getResourceAsStream("/fotos/rood.GIF")));
 	}
 
 }
