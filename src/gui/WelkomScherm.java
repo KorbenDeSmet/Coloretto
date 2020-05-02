@@ -15,11 +15,20 @@ import javafx.scene.layout.GridPane;
 
 public class WelkomScherm extends GridPane {
 	DomeinController domeinController = new DomeinController();
+	
+	
+	
 	public WelkomScherm () {
 		
 		Label lblwelkom = new Label("welkom bij javafx");
 		super.add(lblwelkom, 1, 1);
 			
+		
+		
+		
+		
+		
+		
 		//menubar maken 
 		
 		 MenuBar menuBar = new MenuBar ();
