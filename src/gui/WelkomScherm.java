@@ -25,10 +25,6 @@ public class WelkomScherm extends GridPane {
 			
 		
 		
-		
-		
-		
-		
 		//menubar maken 
 		
 		 MenuBar menuBar = new MenuBar ();
@@ -48,6 +44,7 @@ public class WelkomScherm extends GridPane {
 				 Platform.exit();
 			 } 	 
 		 });
+		 this.getChildren().add(menuBar);
 						
 	}	
 	
