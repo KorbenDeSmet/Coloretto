@@ -69,10 +69,10 @@ public class WelkomScherm extends GridPane {
     	else
     		vijfdeSpeler = false;
     	
-    	domeinController.spelersToevoegen(spelers);
+    	/*domeinController.spelersToevoegen(spelers);
     	domeinController.spelersStartInventoryGeven();
     	domeinController.stapelsAanmaken();
-		domeinController.shuffleLijstVanSpelers();
+		domeinController.shuffleLijstVanSpelers();*/
     	
         hoofdpaneel.toonSpel();
     }
