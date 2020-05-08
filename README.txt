@@ -1,5 +1,6 @@
 Geachte
-Ik heb mijn best gedaan zoveel mogelijk te doen voor iteratie 3, helaas had ik nog niet genoeg kennis over JavaFx om een gui toe te voegen. De komende weken ga ik hier zeer hard aan werken. 
+
+Helaas is het mij niet gelukt alles af te werken voor iteratie 4. Ik heb zo veel mogelijk proberen te doen voor het deel van iteratie 3.
 
 Hier voeg ik nog eens de Repository toe zodat u alle commits en pushes kan bekijken.
 https://github.com/KorbenDeSmet/Coloretto
