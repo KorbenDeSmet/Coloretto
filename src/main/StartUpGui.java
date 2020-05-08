@@ -1,6 +1,6 @@
 package main;
 
-import gui.WelkomScherm;
+import gui.Hoofdpaneel;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 public class StartUpGui extends Application{
     @Override
     public void start(Stage stage) {
-    	WelkomScherm welkom = new WelkomScherm();
-        Scene scene = new Scene(welkom, 750, 400);
+    	Hoofdpaneel root = new Hoofdpaneel();
+        Scene scene = new Scene(root, 750, 400);
         stage.setTitle("Coloretto");
         stage.setScene(scene);
         stage.setMaximized(false);
