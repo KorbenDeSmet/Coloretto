@@ -2,6 +2,7 @@ package gui;
 import java.util.HashMap;
 import java.util.Map;
 import domein.*;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 
@@ -26,6 +27,14 @@ public class Spel extends GridPane{
 		kaarten.put("orange", new Image(getClass().getResourceAsStream("/fotos/orange.GIF")));
 		kaarten.put("paars", new Image(getClass().getResourceAsStream("/fotos/paars.GIF")));
 		kaarten.put("rood", new Image(getClass().getResourceAsStream("/fotos/rood.GIF")));
+		
+		
+		
+		/*Label lblSpelerAanDeBeurt = new Label(domeinController.getSpelers().get(0).getNaam());
+		super.add(lblSpelerAanDeBeurt, 1, 1);
+		String aantalSpelers = Integer.toString(domeinController.getSpelers().size());
+		Label lblAantalSpelers = new Label(aantalSpelers);
+		super.add(lblAantalSpelers, 2, 1);*/
 	}
 
 }
