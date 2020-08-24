@@ -88,6 +88,10 @@ public class Spel {
 		}
 	}
 	
+	public List<Kaart> getInventaris(int speler) {
+		return spelers.get(speler).getInventaris();
+	}
+	
 	public String neemKaart() {		
 		//twijfelgeval of ik de kleur of het object moet tonen
 		inHand = deck.get(deck.size()-1);
@@ -125,27 +129,27 @@ public class Spel {
 		  case 1:
 			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(0));
 			  stapels.get(0).Kaarten.clear();
-			  stapels.remove(0);
+			 // stapels.remove(0);
 		    break;
 		  case 2:
 			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(1));
 			  stapels.get(1).Kaarten.clear();
-			  stapels.remove(1);
+			 // stapels.remove(1);
 		    break;
 		  case 3:
 			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(2));
 			  stapels.get(2).Kaarten.clear();
-			  stapels.remove(2);
+			 // stapels.remove(2);
 			break;
 		  case 4:
 			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(3));
 			  stapels.get(3).Kaarten.clear();
-			  stapels.remove(3);
+			 // stapels.remove(3);
 			break;
 		  case 5:
 			  spelers.get(nummerVanSpeler).stapelToevoegenAanInventaris(stapels.get(4));
 			  stapels.get(4).Kaarten.clear();
-			  stapels.remove(4);
+			  //stapels.remove(4);
 			break;
 		}
 	}

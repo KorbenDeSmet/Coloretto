@@ -9,7 +9,7 @@ public class StartUpGui extends Application{
     @Override
     public void start(Stage stage) {
     	Hoofdpaneel root = new Hoofdpaneel();
-        Scene scene = new Scene(root, 750, 400);
+        Scene scene = new Scene(root, 950, 600);
         stage.setTitle("Coloretto");
         stage.setScene(scene);
         stage.setMaximized(false);

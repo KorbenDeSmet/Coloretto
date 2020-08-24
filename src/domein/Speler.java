@@ -7,6 +7,7 @@ public class Speler {
 	//attributen
 	private String naam ="";
 	private List<Kaart> inventaris= new ArrayList<Kaart>();
+	private int score = 0;
 	
 	//constructors
 	public Speler(String naam) 
@@ -14,6 +15,14 @@ public class Speler {
 		setNaam(naam);
 	}
 	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 	//getters en setters
 	public String getNaam() {
 		return naam;

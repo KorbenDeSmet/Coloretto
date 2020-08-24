@@ -73,6 +73,7 @@ public class ColorettoApplicatie {
 						System.out.print("Stapel " + (a+1) +": " + domeinController.getStapels().get(a).getKaarten());
 						System.out.println();
 					}
+					
 					int kaartOfStapel = 0;
 					System.out.print("Wilt u een kaart nemen of een stapel nemen? (1-2): ");
 					kaartOfStapel = scannerInt.nextInt();
@@ -126,7 +127,7 @@ public class ColorettoApplicatie {
 						System.out.printf("Op welke stapel wilt u de kaart (%s) leggen? %s: ",domeinController.getInHand(), domeinController.aantalStapelsToString());
 						int stapelNRtwee = scannerInt.nextInt();
 						System.out.println();
-						if (domeinController.stapelIsFull(stapelNRtwee) == true) {
+						if (domeinController.isStapelVol(stapelNRtwee) == true) {
 							System.out.println("Deze stapel zit helaas al vol.");
 						} else {
 							domeinController.plaatsKaartOpStapel(stapelNRtwee, domeinController.getInHand());

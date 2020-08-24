@@ -33,4 +33,5 @@ public class Kaart {
 	public String toString() {
 			return this.kleur;
 	}
+	
 }

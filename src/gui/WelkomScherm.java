@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
 public class WelkomScherm extends GridPane {
-	DomeinController domeinController = new DomeinController();
 	
 	private Hoofdpaneel hoofdpaneel;
 	private List<String> spelers = new ArrayList<String>();
@@ -19,7 +18,7 @@ public class WelkomScherm extends GridPane {
 	private TextField txtNaam3;
 	private TextField txtNaam4;
 	private TextField txtNaam5;
-	private Boolean vijfdeSpeler;
+	private Boolean vijfdeSpeler = false;
 	
 	
 	public WelkomScherm (Hoofdpaneel hoofdpaneel) {
@@ -63,16 +62,13 @@ public class WelkomScherm extends GridPane {
     	spelers.add(txtNaam4.getText());
     	if (txtNaam5.getText().isEmpty() == false)
     		{
-    		spelers.add(txtNaam5.toString());
+    		spelers.add(txtNaam5.getText());
     		vijfdeSpeler = true;
     		}
-    	else
-    		vijfdeSpeler = false;
-    	
-    	/*domeinController.spelersToevoegen(spelers);
-    	domeinController.spelersStartInventoryGeven();
-    	domeinController.stapelsAanmaken();
-		domeinController.shuffleLijstVanSpelers();*/
+    	hoofdpaneel.dc.spelersToevoegen(spelers);
+    	hoofdpaneel.dc.spelersStartInventoryGeven();
+    	hoofdpaneel.dc.stapelsAanmaken();
+    	hoofdpaneel.dc.shuffleLijstVanSpelers();
     	
         hoofdpaneel.toonSpel();
     }

@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 public class Hoofdpaneel extends GridPane {
-	DomeinController domeinController = new DomeinController();
+	DomeinController dc = new DomeinController();
 	
 	private WelkomScherm ws = new WelkomScherm(this);
 	private Spel spel = new Spel(this);
@@ -19,7 +19,7 @@ public class Hoofdpaneel extends GridPane {
 	private Button btnStart;
 	
 	public Hoofdpaneel() {
-		domeinController.startSpel();
+		dc.startSpel();
 		super.setPadding(new Insets(10, 10, 10, 10));
 		super.setVgap(5);
 		super.setHgap(5);	

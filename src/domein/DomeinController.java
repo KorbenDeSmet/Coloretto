@@ -83,4 +83,8 @@ public class DomeinController {
 	public boolean isStapelVol(int stapel) {
 		return spel.isStapelVol(stapel-1);
 	}
+	
+	public List<Kaart> getInventaris(int speler) {
+		return spel.getInventaris(speler);
+	}
 }
