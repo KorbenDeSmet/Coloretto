@@ -12,21 +12,25 @@ public class ScoreMapper {
 
             queryScoreToevoegen.setString(2, dc.getSpelers().get(1).getNaam());
             queryScoreToevoegen.setInt(3, dc.getSpelers().get(1).getScore());
+            queryScoreToevoegen.executeUpdate();
 
             queryScoreToevoegen.setString(2, dc.getSpelers().get(2).getNaam());
             queryScoreToevoegen.setInt(3, dc.getSpelers().get(2).getScore());
+            queryScoreToevoegen.executeUpdate();
             
             queryScoreToevoegen.setString(2, dc.getSpelers().get(3).getNaam());
             queryScoreToevoegen.setInt(3, dc.getSpelers().get(3).getScore());
+            queryScoreToevoegen.executeUpdate();
             
             queryScoreToevoegen.setString(2, dc.getSpelers().get(4).getNaam());
             queryScoreToevoegen.setInt(3,dc.getSpelers().get(4).getScore());
+            queryScoreToevoegen.executeUpdate();
             
             if (dc.getSpelers().size() == 5) {
                 queryScoreToevoegen.setString(2, dc.getSpelers().get(5).getNaam());
                 queryScoreToevoegen.setInt(3,dc.getSpelers().get(5).getScore());
+                queryScoreToevoegen.executeUpdate();
             }
-            queryScoreToevoegen.executeUpdate();
         } catch (SQLException exception) {
             for (Throwable ex : exception) {
                 ex.printStackTrace();
